@@ -4,10 +4,6 @@ A movie application made with [create-react-app](https://github.com/facebook/cre
 
 ## **The application is still in development**
 
----
-
 ## Screenshots
-
----
 
 ### Home Page
