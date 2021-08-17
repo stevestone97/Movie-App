@@ -1,0 +1,51 @@
+.cast__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 5px;
+  min-width: 140px;
+  width: 140px;
+  height: 270px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(83, 78, 78, 0.192);
+  box-shadow: 0px 1px 1px -1px rgba(105, 104, 104, 0.623);
+  -webkit-box-shadow: 0px 1px 1px -1px rgba(105, 104, 104, 0.623);
+}
+.cast__img {
+  object-fit: cover;
+  height: 175px;
+  width: 138px;
+  min-width: 138px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+.name__character {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.cast__name {
+  display: block;
+  width: 149px;
+  padding: 3px;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-family: "Public Sans", sans-serif;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+.cast__name:hover {
+  text-decoration: underline;
+}
+.cast__character {
+  display: block;
+  padding: 3px 6px 6px 3px;
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-family: "Public Sans", sans-serif;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
