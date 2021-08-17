@@ -1,0 +1,14 @@
+.carousel-container {
+  position: relative;
+}
+
+.custom-dot {
+  position: absolute;
+  bottom: 30px;
+}
+
+@media only screen and (max-width: 40.7625em) {
+  .custom-dot {
+    display: none;
+  }
+}

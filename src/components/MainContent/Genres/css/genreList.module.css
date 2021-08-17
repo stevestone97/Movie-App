@@ -1,0 +1,59 @@
+.genre {
+  display: inline-flex;
+}
+
+.genre li {
+  display: inline;
+}
+
+.list_item button {
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  font-weight: 200;
+  font-size: 15px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background: transparent;
+  padding: 5px;
+  border: 1.5px solid white;
+  border-radius: 5px;
+  color: white;
+  opacity: 0.6;
+}
+
+.list_item button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  color: #f5c518;
+  border: 1.5px solid #f5c518;
+}
+
+.list_item button:focus {
+  color: #f5c518;
+  border: 1.5px solid #f5c518;
+  opacity: 1;
+}
+
+.genreList {
+  padding: 8px;
+  margin: 15px auto;
+}
+
+.genreList p {
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.genreList h4 {
+  margin: 6px 0;
+}
+
+.genreList h4 a {
+  text-decoration: none;
+  color: #5799ef;
+  padding: 10px;
+}
+
+.genreList h4 a:hover {
+  text-decoration: underline;
+}

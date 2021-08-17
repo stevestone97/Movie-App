@@ -1,0 +1,155 @@
+.wrapper {
+  position: relative;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backPoster {
+  width: 100vw;
+  height: 99vh;
+  margin: auto;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  object-fit: cover;
+  background: linear-gradient(
+    269.96deg,
+    rgba(29, 29, 29, 0) 0.04%,
+    rgba(29, 29, 29, 0.8) 99.5%
+  );
+  opacity: 0.9;
+}
+
+.info_wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  z-index: 200;
+  height: 100%;
+  width: 30%;
+  background-color: rgba(24, 23, 23, 0.836);
+}
+
+.info_wrapper h3 {
+  color: white;
+  width: 100%;
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.info_wrapper h4,
+.overview {
+  color: white;
+  margin-top: 1rem;
+  max-width: 650px;
+  opacity: 0.8;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.info_wrapper .overview {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+.play_btn {
+  display: flex;
+  width: 130px;
+  height: 56px;
+  margin-top: 15px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  border: 1px solid white;
+  border-radius: 40px;
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0px 16px 16px 4px rgba(0, 0, 0, 0.12);
+  justify-content: center;
+  align-items: center;
+}
+
+.play_btn p {
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+.play_btn:hover {
+  color: black;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 70.7625em) {
+  .backPoster {
+    width: 100vw;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 40.7625em) {
+  .backPoster {
+    width: 100vw;
+    height: 100%;
+  }
+  .info_wrapper {
+    width: 100vw;
+    height: 33%;
+    padding: 15px 20px;
+    padding-right: 30px;
+    background-color: rgba(24, 23, 23, 0.938);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .info_wrapper h3 {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  .info_wrapper h4 {
+    width: 100%;
+    margin: 2px 0;
+    padding-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  .info_wrapper .overview {
+    display: none;
+  }
+  .play_btn p {
+    display: none;
+  }
+
+  .play_btn {
+    padding: 16px;
+    width: 80px;
+    height: 50px;
+    font-size: 16px;
+    border: 3px solid white;
+    margin-top: 0px;
+  }
+
+  .play_btn:hover {
+    transition: all 0.2s;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
