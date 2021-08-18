@@ -430,7 +430,11 @@ export const fetchMovieVideos = async (id) => {
         api_key: apiKey,
       },
     });
-    return data["results"][0];
+    const modifiedData = data["results"].map((m) => ({
+      id: m["id"],
+      key: m["key"],
+    }));
+    return modifiedData.slice(0, 20);
   } catch (error) {}
 };
 export const fetchSimilarMovie = async (id) => {
