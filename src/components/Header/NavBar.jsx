@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import { searchMovies } from "../../Services";
 
@@ -8,6 +8,7 @@ function NavBar() {
   const [nav, setNav] = useState(false);
   const [searchMovie, SetSearchMovie] = useState([]);
   const [search, SetSearch] = useState("");
+  const location = useLocation();
   const defultStyle = {
     textDecoration: "none",
   };
@@ -28,6 +29,23 @@ function NavBar() {
     };
     fetchAPI();
   }, [search]);
+  useEffect(() => {
+    SetSearch("");
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const SearchItems = searchMovie?.slice(0, 4).map((s, i) => {
+    return (
+      <Link style={defultStyle} to={`/movie/${s.id}`}>
+        <div key={i} className="search_item">
+          <div className="img_title">
+            <img src={s.poster} />
+            <p>{s.title}</p>
+          </div>
+        </div>
+      </Link>
+    );
+  });
 
   return (
     <header>
@@ -69,22 +87,26 @@ function NavBar() {
               </div>
               <div className="right_side">
                 <li className="search">
-                  <div>
-                    <input
-                      id="search"
-                      type="text"
-                      className="searchTerm"
-                      placeholder="Search..."
-                      value={search}
-                      onChange={(e) => SetSearch(e.target.value)}
-                    />
-                    <button type="submit" className="searchButton">
-                      <i className="fa fa-search"></i>
-                    </button>
+                  <div className="search_results">
+                    <div>
+                      <input
+                        id="search"
+                        type="text"
+                        autocomplete="off"
+                        className="searchTerm"
+                        placeholder="Search..."
+                        value={search}
+                        onChange={(e) => SetSearch(e.target.value)}
+                      />
+                      <button className="searchButton">
+                        <i className="fa fa-search"></i>
+                      </button>
+                    </div>
+                    <div className="search_items">{SearchItems}</div>
                   </div>
                 </li>
                 <Link style={defultStyle} to="/registration/signin">
-                  <li className="listItem">Log in</li>
+                  <li className="listItem sign_in">Log in</li>
                 </Link>
               </div>
             </div>
