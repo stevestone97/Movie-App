@@ -108,10 +108,9 @@ function MovieDetail({ match }) {
     <div>
       <div className={Styles.movie_detail}>
         <section>
-          ;{/* Movie Info */}
+          {/* Movie Info */}
           <MovieInfo detail={detail} genreList={genresList} />
         </section>
-        <hr />
         <section>
           {/* Cast */}
           <div className={Styles.component}>
@@ -128,7 +127,7 @@ function MovieDetail({ match }) {
           {/* Media */}
           <div className={Styles.Media}>
             <div style={{ display: "flex" }} className={Styles.component}>
-              <h2 style={{ width: "200px" }}>Media</h2>
+              <h2 className={Styles.media__title}>Media</h2>
               <button
                 className={Styles.media__btn}
                 onClick={() => {

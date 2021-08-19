@@ -6,7 +6,7 @@ function FeaturedItem(props) {
   const movieurl = `/movie/${props.item.id}`;
 
   return (
-    <div className={Styles.wrapper} key={props.key}>
+    <div className={Styles.wrapper}>
       <img className={Styles.backPoster} src={props.item.backPoster} />
       <div className={Styles.info_wrapper}>
         <div>

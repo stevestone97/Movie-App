@@ -8,7 +8,7 @@ function MovieItem(props) {
   const defultStyle = { textDecoration: "none" };
 
   return (
-    <div className={Styles.wrapper} key={props.key}>
+    <div className={Styles.wrapper}>
       <Link to={movieUrl}>
         <img
           src={props.isLargeRow ? props.item.poster : props.item.backPoster}

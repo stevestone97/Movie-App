@@ -13,7 +13,7 @@ function Review(props) {
     "https://png.pngitem.com/pimgs/s/10-109819_my-account-my-account-icon-transparent-hd-png.png";
 
   return (
-    <div className={Styles.review__wrapper} key={props.key}>
+    <div className={Styles.review__wrapper}>
       <div className={Styles.review}>
         <div>
           <img className={Styles.avatar} src={avatar} />

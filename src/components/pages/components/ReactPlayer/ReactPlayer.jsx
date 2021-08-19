@@ -12,7 +12,6 @@ function ReactvideoPlayer(props) {
         width="750px"
         height="350px"
       ></ReactPlayer>
-      {console.log(youtubeUrl)}
     </div>
   );
 }
