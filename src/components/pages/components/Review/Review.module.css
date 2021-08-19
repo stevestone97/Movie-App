@@ -74,3 +74,10 @@
   font-size: 0.8rem;
   font-weight: 900;
 }
+
+@media only screen and (max-width: 60.0625em) {
+  .review__wrapper {
+    width: 90vw;
+    margin-left: 15px;
+  }
+}

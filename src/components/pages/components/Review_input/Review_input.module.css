@@ -63,3 +63,12 @@
   opacity: 1;
   cursor: pointer;
 }
+@media only screen and (max-width: 60.0625em) {
+  .review__input {
+    width: 500px;
+    height: 200px;
+    max-width: 420px;
+    min-width: 420px;
+    min-height: 200px;
+  }
+}
