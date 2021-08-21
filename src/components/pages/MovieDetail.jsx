@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./css/MovieDetail.module.css";
-import MovieItem from "../MainContent/Movies/movie-item";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Review from "./components/Review/Review";
 import Cast from "./components/Cast/Cast";
 import ReviewInput from "./components/Review_input/Review_input";
+import MovieItem from "../MainContent/Movies/movie-item";
+import MovieInfo from "./components/Movie_info/Movie_info";
+import ReactvideoPlayer from "./components/ReactPlayer/ReactPlayer";
 import {
   fetchMovieDetail,
   fetchMovieVideos,
@@ -15,8 +17,6 @@ import {
   fetchMoviebackdrops,
   fetchMoviePoster,
 } from "../../Services";
-import MovieInfo from "./components/Movie_info/Movie_info";
-import ReactvideoPlayer from "./components/ReactPlayer/ReactPlayer";
 
 function MovieDetail({ match }) {
   let params = match.params;
@@ -65,7 +65,7 @@ function MovieDetail({ match }) {
     fetchAPI();
   }, [params.id]);
 
-  genres = detail.genres;
+  genres = detail?.genres;
   let genresList;
   if (genres) {
     genresList = genres.map((g, i) => {

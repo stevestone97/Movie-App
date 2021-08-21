@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import { searchMovies } from "../../Services";
 
 function NavBar() {
+  let history = useHistory();
   const [show, handelShow] = useState(false);
   const [nav, setNav] = useState(false);
+  const [cursor, setCursor] = useState(0);
   const [searchMovie, SetSearchMovie] = useState([]);
   const [search, SetSearch] = useState("");
   const location = useLocation();
   const defultStyle = {
     textDecoration: "none",
+    color: "white",
   };
+
+  const moreResults = (
+    <p className="Alt-result">See all results for "{search}"</p>
+  );
+  const noResults = (
+    <p className="Alt-result">There are no movies that matches "{search}"</p>
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -34,7 +44,7 @@ function NavBar() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const SearchItems = searchMovie?.slice(0, 4).map((s, i) => {
+  const SearchItems = searchMovie?.slice(0, 5).map((s, i) => {
     return (
       <Link style={defultStyle} to={`/movie/${s.id}`}>
         <div key={i} className="search_item">
@@ -48,72 +58,54 @@ function NavBar() {
   });
 
   return (
-    <header>
-      <div
-        className={`wrapper ${show && "wrapper_black"} ${
-          nav && "wrapper_black"
-        }`}
-      >
-        <nav>
-          <li className="listItem ham__menu">
-            <i onClick={() => setNav(!nav)} class="fas fa-bars"></i>
-          </li>
-          <div className={` ${nav ? "ham__menu__items" : "ham_menu_hidden"}`}>
-            <Link style={defultStyle} to="/">
-              <li>Home</li>
-            </Link>
-            <Link style={defultStyle} to="/movies">
-              <li>Movies</li>
-            </Link>
-            <Link style={defultStyle} to="/watchlist">
-              <li>Watchlist</li>
-            </Link>
-            <Link style={defultStyle} to="/registration/signin">
-              <li>Log in</li>
-            </Link>
-          </div>
-          <ul>
-            <div className="flex">
-              <div className="left_side">
-                <Link style={defultStyle} to="/">
-                  <li className="listItem">Home</li>
-                </Link>
-                <Link style={defultStyle} to="/movies">
-                  <li className="listItem">Movies</li>
-                </Link>
-                <Link style={defultStyle} to="/watchlist">
-                  <li className="listItem">Watchlist</li>
-                </Link>
-              </div>
-              <div className="right_side">
-                <li className="search">
-                  <div className="search_results">
-                    <div>
-                      <input
-                        id="search"
-                        type="text"
-                        autocomplete="off"
-                        className="searchTerm"
-                        placeholder="Search..."
-                        value={search}
-                        onChange={(e) => SetSearch(e.target.value)}
-                      />
-                      <button className="searchButton">
-                        <i className="fa fa-search"></i>
-                      </button>
-                    </div>
-                    <div className="search_items">{SearchItems}</div>
-                  </div>
-                </li>
-                <Link style={defultStyle} to="/registration/signin">
-                  <li className="listItem sign_in">Log in</li>
-                </Link>
-              </div>
+    <div
+      className={`wrapper ${show && "wrapper_black"} ${nav && "wrapper_black"}`}
+    >
+      <nav>
+        <li className="listItem ham__menu">
+          <i onClick={() => setNav(!nav)} class="fas fa-bars" />
+        </li>
+        <div className={nav ? "ham__menu__items" : "ham_menu_hidden"}>
+          <li onClick={() => history.push("/")}>Home</li>
+          <li onClick={() => history.push("/movies")}>Movies</li>
+        </div>
+        <ul>
+          <div className="flex">
+            <div className="left_side">
+              <li onClick={() => history.push("/")}>HOME</li>
+              <li onClick={() => history.push("/movies")}>MOVIES</li>
             </div>
-          </ul>
-        </nav>
-      </div>
-    </header>
+
+            <div className="right_side">
+              <li className="search">
+                <div className="search_results">
+                  <form onSubmit={() => history.push(`/search/${search}`)}>
+                    <input
+                      className="searchTerm"
+                      type="text"
+                      role="search"
+                      autocomplete="off"
+                      placeholder="Search..."
+                      value={search}
+                      onChange={(e) => SetSearch(e.target.value)}
+                    />
+                    <button className="searchButton">
+                      <i className="fa fa-search" />
+                    </button>
+                  </form>
+                  <div className="search_items">
+                    {SearchItems?.length === 0 ? noResults : SearchItems}
+                    <Link style={defultStyle} to={`/search/${search}`}>
+                      {searchMovie?.length > 5 && moreResults}
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
+        </ul>
+      </nav>
+    </div>
   );
 }
 export default NavBar;
